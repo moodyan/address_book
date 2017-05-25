@@ -2,8 +2,11 @@
 <ol>
 @foreach (var cd in @Model["cds"])
 {
-  <li>@cd.GetTitle()</li>
+  <li>@cd.GetTitle() by @cd.GetArtist()</li>
 }
 </ol>
 <p><a href='/genres/@Model["genre"].GetId()/cds/new'>Add a new cd</a></p>
 <p><a href='/'>Return to Main Page</a></p>
+<form action="/cds_cleared" method="post">
+  <button type="submit" name="button">Clear All CDs</button>
+</form>

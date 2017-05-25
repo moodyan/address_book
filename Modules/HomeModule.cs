@@ -18,12 +18,13 @@ namespace CD_organizer
       Get["/genres/new"] = _ => {
         return View["genre_form.cshtml"];
       };
+      //Add a new genre
       Post["/genres"] = _ => {
         Genres newGenre = new Genres(Request.Form["genre-name"]);
         List<Genres> allGenres = Genres.GetAll();
         return View["genres.cshtml", allGenres];
       };
-      //View all the CDs in a genre
+      //View all the genres
       Get["/genres/{id}"] = parameters => {
         Dictionary<string, object> model = new Dictionary<string, object>();
         Genres selectedGenre = Genres.Find(parameters.id);
@@ -32,7 +33,7 @@ namespace CD_organizer
         model.Add("cds", genreCds);
         return View["genre.cshtml", model];
       };
-      //Add CDs to a genre
+      //View CDs in a genre
       Get["/genres/{id}/cds/new"] = parameters => {
         Dictionary<string, object> model = new Dictionary<string, object>();
         Genres selectedGenre = Genres.Find(parameters.id);
@@ -41,33 +42,30 @@ namespace CD_organizer
         model.Add("cds", allCds);
         return View["genre_cd_form.cshtml", model];
       };
-      //Add a new CD
+      //Add a new CD to a genre
       Post["/view_all_cds"] = _ => {
         Dictionary<string, object> model = new Dictionary<string, object>();
         Genres selectedGenre = Genres.Find(Request.Form["genre-id"]);
         List<Cds> genreCds = selectedGenre.GetCds();
-        string cdDescription = Request.Form["cd-description"];
-        Cds newCd = new Cds(cdDescription);
+        string cdTitle = Request.Form["cd-description"];
+        string cdArtist = Request.Form["cd-artist"];
+        Cds newCd = new Cds(cdTitle, cdArtist);
         genreCds.Add(newCd);
         model.Add("cds", genreCds);
         model.Add("genre", selectedGenre);
         return View["genre.cshtml", model];
       };
 
-      // Post["/cds_cleared"] = _ => {
-      //   Cds.ClearAll();
-      //   return View["cds_cleared.cshtml"];
-      // };
+      Post["/cds_cleared"] = _ => {
+        Cds.ClearAll();
+        return View["cds_cleared.cshtml"];
+      };
 
-      // Post["/cds_added"] = _ => {
-      //   Cds newCd = new Cds(Request.Form["title"], Request.Form["artist"]);
-      //   return View["cds_added.cshtml", newCd];
-      // };
-      //
-      // Post["/cds_cleared"] = _ => {
-      //   Cds.ClearAll();
-      //   return View["cds_cleared.cshtml"];
-      // };
+      Post["/genres_cleared"] = _ => {
+        Genres.Clear();
+        return View["genres_cleared.cshtml"];
+      };
+
     }
   }
 }
