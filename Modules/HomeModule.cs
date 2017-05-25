@@ -68,6 +68,9 @@ namespace CD_organizer
       Get["/genres/search"] = _ => {
         return View["search_form.cshtml"];
       };
+      Get["/search/artist"] = _ => {
+        return View["search_form.cshtml"];
+      };
 
       Post["/search/artist"] = _ =>{
         string user_input = Request.Form["search_artist"];

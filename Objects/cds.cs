@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 namespace CD_organizer.Objects
 {
   public class Cds
@@ -57,7 +58,7 @@ namespace CD_organizer.Objects
     //find the artist matched user input, return true if matched
     public bool Search(string userInput)
     {
-      return _artist.Contains(userInput);
+      return _artist.Contains(userInput); //NOTE: Does not know how to ignore case
     }
 
   }
