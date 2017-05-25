@@ -1,0 +1,9 @@
+<h3>Here are all the CDs in this collection:</h3>
+<ol>
+@foreach (var cd in @Model["cds"])
+{
+  <li>@cd.GetTitle()</li>
+}
+</ol>
+<p><a href='/genres/@Model["genre"].GetId()/cds/new'>Add a new cd</a></p>
+<p><a href='/'>Return to Main Page</a></p>

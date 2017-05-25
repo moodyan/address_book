@@ -2,13 +2,13 @@ using System.Collections.Generic;
 
 namespace CD_organizer.Objects
 {
-  public class Collection
+  public class Genres
   {
-    private static List<Collection> _genres = new List<Collection>{};
+    private static List<Genres> _genres = new List<Genres>{};
     private string _genre;
     private int _id;
     private List<Cds> _listCD;
-    public Collection(string genreType)
+    public Genres(string genreType)
     {
       _genre = genreType;
       _genres.Add(this);
@@ -26,7 +26,7 @@ namespace CD_organizer.Objects
       return _id;
     }
 
-    public static List<Collection> GetAll()
+    public static List<Genres> GetAll()
     {
       return _genres;
     }
@@ -36,12 +36,12 @@ namespace CD_organizer.Objects
       _genres.Clear();
     }
 
-    public static Collection Find(int searchID)
+    public static Genres Find(int searchID)
     {
       return _genres[searchID - 1];
     }
     //view all CDs in a collection
-    public List<Cds> GetCDs()
+    public List<Cds> GetCds()
     {
       return _listCD;
     }

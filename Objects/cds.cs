@@ -7,10 +7,10 @@ namespace CD_organizer.Objects
     private string _artist;
     private int _id;
     private static List<Cds> _listCD = new List<Cds>();
-    public Cds(string title, string artist)
+    public Cds(string title)
       {
         SetTitle(title);
-        SetArtist(artist);
+        // SetArtist(artist);
         _listCD.Add(this);
         _id = _listCD.Count;
       }
@@ -23,17 +23,17 @@ namespace CD_organizer.Objects
     {
       _title = title;
     }
+    //
+    // public string GetArtist()
+    // {
+    //   return _artist;
+    //
+    // }
 
-    public string GetArtist()
-    {
-      return _artist;
-
-    }
-
-    public void SetArtist(string artist)
-    {
-      _artist = artist;
-    }
+    // public void SetArtist(string artist)
+    // {
+    //   _artist = artist;
+    // }
 
     public int GetId()
     {
