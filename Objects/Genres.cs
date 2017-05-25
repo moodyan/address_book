@@ -51,5 +51,6 @@ namespace CD_organizer.Objects
       _listCD.Add(cd);
     }
 
+
   }
 }

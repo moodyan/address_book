@@ -1,0 +1,11 @@
+<h3>Here are all the CDs</h3>
+<ol>
+  @foreach (var cd in @Model)
+  {
+    <li>@cd.GetTitle() by @cd.GetArtist()</li>
+  }
+</ol>
+
+<p><a href='/genres'>View all genres</a></p>
+<p><a href='/search/artist'>Search more!</a></p>
+<p><a href='/'>Return to Main Page</a></p>

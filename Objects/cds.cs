@@ -54,5 +54,11 @@ namespace CD_organizer.Objects
     {
       return _listCD[searchID - 1];
     }
+    //find the artist matched user input, return true if matched
+    public bool Search(string userInput)
+    {
+      return _artist.Contains(userInput);
+    }
+
   }
 }

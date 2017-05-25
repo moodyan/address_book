@@ -43,7 +43,7 @@ namespace CD_organizer
         return View["genre_cd_form.cshtml", model];
       };
       //Add a new CD to a genre
-      Post["/view_all_cds"] = _ => {
+      Post["/cds"] = _ => {
         Dictionary<string, object> model = new Dictionary<string, object>();
         Genres selectedGenre = Genres.Find(Request.Form["genre-id"]);
         List<Cds> genreCds = selectedGenre.GetCds();
@@ -56,16 +56,30 @@ namespace CD_organizer
         return View["genre.cshtml", model];
       };
 
-      Post["/cds_cleared"] = _ => {
+      Post["/cds/cleared"] = _ => {
         Cds.ClearAll();
         return View["cds_cleared.cshtml"];
       };
 
-      Post["/genres_cleared"] = _ => {
+      Post["/genres/cleared"] = _ => {
         Genres.Clear();
         return View["genres_cleared.cshtml"];
       };
+      Get["/genres/search"] = _ => {
+        return View["search_form.cshtml"];
+      };
 
+      Post["/search/artist"] = _ =>{
+        string user_input = Request.Form["search_artist"];
+        List<Cds> allCds = Cds.GetAll();
+        List<Cds> cd_found = new List<Cds>();
+        foreach(var cd in allCds){
+          if(cd.Search(user_input)){
+            cd_found.Add(cd);
+          }
+        }
+        return View["search_by_artist.cshtml", cd_found];
+      };
     }
   }
 }
