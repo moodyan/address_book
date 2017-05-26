@@ -1,10 +1,26 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
 <h1>Add a contact</h1>
 <p>Add a contact here:</p>
-<form action="/contacts" method="post">
-  <label for="contact-name">Name</label>
-  <input id="contact-name" name="contact-name" type="text">
-  <label for="contact-phone">Name</label>
-  <input id="contact-phone" name="contact-phone" type="text">
+<form action="/contacts/added" method="post" class ="form-inline">
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text">
+  <br>
+  <label for="phone">Phone</label>
+  <input id="phone" name="phone" type="text">
+  <br>
+  <label for="street">Street Number</label>
+  <input id="street" name="street" type="text">
+  <br>
+  <label for="city">City</label>
+  <input id="city" name="city" type="text">
+  <label for="state">State</label>
+  <input id="state" name="state" type="text">
+  <label for="zip">Zip Code</label>
+  <input id="zip" name="zip" type="text">
+
   <button type="submit">Add</button>
 </form>
 <p><a href="/">Back home</a></p>
