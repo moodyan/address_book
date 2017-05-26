@@ -1,11 +1,29 @@
 @{
   Layout="Shared/_Layout.cshtml";
 }
+
 <div class="jumbotron">
   <div class="container">
     <h1>Address Book</h1>
   </div>
 </div>
 <h1>Contact List</h1>
+<div>
 
-<h3><a href='/contact/new'>Add a new contact</a></h3>
+@if(@Model.Count == 0)
+{
+  <p>There are no Contacts!</p>
+}
+
+@if(@Model.Count != 0)
+{
+  <ul>
+    @foreach (var contact in @Model)
+    {
+      <li><a href="/contact/@contact.GetId()">@contact.GetName()</a></li>
+    }
+  </ul>
+}
+</div>
+
+<h3><a href="/contact/new">Add a new contact</a></h3>
