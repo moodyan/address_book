@@ -1,0 +1,19 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+<div class="container">
+  <h1>@Model.GetName()'s Details:</h1>
+  <ul>
+    <li><span class="strong">Phone Number:</span> @Model.GetPhone()</li>
+    <li><span class="strong">Address:</span></li>
+    <li>@Model.GetStreet()</li>
+    <li>@Model.GetCity(), @Model.GetState() @Model.GetZip()</li>
+  </ul>
+</div>
+<p><a href="/contact/new">Add new Contact!</a></span></p>
+<p><a href="/">Back to Home</a></p>
+
+<form action="/contact/@Model.GetId()" method="post">
+  <button type="submit" name="button">Delete This Contact</button>
+</form>

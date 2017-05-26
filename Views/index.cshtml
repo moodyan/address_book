@@ -7,23 +7,28 @@
     <h1>Address Book</h1>
   </div>
 </div>
-<h1>Contact List</h1>
-<div>
 
-@if(@Model.Count == 0)
-{
-  <p>There are no Contacts!</p>
-}
+<div class="container">
+  <h1>Contact List</h1>
 
-@if(@Model.Count != 0)
-{
-  <ul>
-    @foreach (var contact in @Model)
-    {
-      <li><a href="/contact/@contact.GetId()">@contact.GetName()</a></li>
-    }
-  </ul>
-}
+  @if(@Model.Count == 0)
+  {
+    <p class="warning">No contacts have been added! Click link below to add new contacts.</p>
+  }
+
+  @if(@Model.Count != 0)
+  {
+    <ul>
+      @foreach (var contact in @Model)
+      {
+        <li><a href="/contact/@contact.GetId()">@contact.GetName()</a></li>
+      }
+    </ul>
+  }
+
+  <h3><a href="/contact/new">Add a new contact</a></h3>
+
+  <form action="/contact/cleared" method="post">
+      <button id="clearAll" type="submit" name="button">Clear All Contacts</button>
+  </form>
 </div>
-
-<h3><a href="/contact/new">Add a new contact</a></h3>

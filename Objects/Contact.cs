@@ -7,17 +7,17 @@ namespace AddressBook.Objects
     private static List<Contact> _contacts = new List<Contact>{};
     private string _name;
     private string _phone;
-    private string _streetAddress;
+    private string _street;
     private string _city;
     private string _state;
     private string _zip;
     private int _id;
 
-    public Contact(string name, string phone, string streetAddress, string city, string state, string zip)
+    public Contact(string name, string phone, string street, string city, string state, string zip)
     {
       _name = name;
       _phone = phone;
-      _streetAddress = streetAddress;
+      _street = street;
       _city = city;
       _state = state;
       _zip = zip;
@@ -33,9 +33,9 @@ namespace AddressBook.Objects
     {
       return _phone;
     }
-    public string GetStreetAddress()
+    public string GetStreet()
     {
-      return _streetAddress;
+      return _street;
     }
     public string GetCity()
     {

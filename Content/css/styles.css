@@ -1,0 +1,13 @@
+.warning {
+  color: red;
+  font-style: italic;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.strong {
+  font-weight: bold;
+}
