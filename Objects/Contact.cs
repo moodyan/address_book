@@ -10,9 +10,9 @@ namespace AddressBook.Objects
     private string _streetAddress;
     private string _city;
     private string _state;
-    private int _zip;
+    private string _zip;
     private int _id;
-=
+
     public Contact(string name, string phone, string streetAddress, string city, string state, string zip)
     {
       _name = name;
@@ -45,7 +45,7 @@ namespace AddressBook.Objects
     {
       return _state;
     }
-    public int GetZip()
+    public string GetZip()
     {
       return _zip;
     }
@@ -58,15 +58,14 @@ namespace AddressBook.Objects
       return _contacts;
     }
 
-    public static void Clear()
-    {
-      _contacts.Clear();
-    }
-    public void Remove()
-    {
-      _contacts.Remove(this);
-
-
+    // public static void Clear()
+    // {
+    //   _contacts.Clear();
+    // }
+    // public void Remove()
+    // {
+    //   _contacts.Remove(this);
+    // }
     public static Contact Find(int searchID)
     {
       return _contacts[searchID - 1];

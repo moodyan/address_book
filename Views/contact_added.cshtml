@@ -4,7 +4,12 @@
 
 <h1>You added a new Contact!</h1>
 
-<!-- <p>@contact.GetName()</p> -->
+  <ul>
+    <li>Name: @Model.GetName()</li>
+    <li>Phone Number: @Model.GetPhone()</li>
+    <li>Street Address: @Model.GetStreetAddress()</li>
+    <li>City, State Zip: @Model.GetCity(), @Model.GetState() @Model.GetZip()</li>
+  </ul>
 
 <p><a href="/contacts/new">Add another Contact</a></p>
 <p><a href="/contacts">View All Contacts</a></p>

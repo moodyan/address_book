@@ -1,4 +1,5 @@
 using Nancy;
+using System;
 using System.Collections.Generic;
 using AddressBook.Objects;
 
@@ -9,20 +10,19 @@ namespace AddressBook
     public HomeModule()
     {
       Get["/"] = _ => {
-      List<Contacts> allContacts = Contacts.GetAll();
+      List<Contact> allContacts = Contact.GetAll();
       return View["index.cshtml", allContacts];
       };
-      Get["/contacts"] = _ => {
-        List<Contacts> allContacts = Contacts.GetAll();
-        return View["contacts.cshtml", allContacts];
-      };
-      Get["/contacts/new"] = _ => {
+      Get["/contact/new"] = _ => {
         return View["contact_form.cshtml"];
       };
-      Post["/contacts/added"] = _ => {
-        Contacts newContact = new Contacts(Request.Query["name"]);
-        List<Contacts> allContacts = Contacts.GetAll();
-        return View["contact_added.cshtml", allContacts];
+      Post["/contact"] = _ => {
+        Contact newContact = new Contact(Request.Form["name"], Request.Form["phone"], Request.Form["streetAddress"], Request.Form["city"], Request.Form["state"], Request.Form["zip"]);
+        return View["contact_added.cshtml", newContact];
+      };
+      Get["/contact/{id}"] = parameters => {
+        Contact contact = Contact.Find(parameters.id);
+        return View["/contact.cshtml", contact];
       };
 
 
