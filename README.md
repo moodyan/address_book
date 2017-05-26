@@ -15,6 +15,7 @@ _An address book where you can store contact information for people you know. Cr
 | The program allows users to input contact information into a form and submit.  | Name, Phone Number, Address   | "You created a contact! Inputted name, phone number, address"  |
 | The program allows users to visit the home page and see all added contacts.  | Click: View All Contacts   | All Contacts  |
 | The program allows for users to clear the address book.  | Click: Clear All   | "All Contacts Cleared"  |
+| The program allows for users to remove individual contacts.  | Click: Delete this contact   | "This contact has been removed"  |
 
 ## Setup/Installation Requirements
 
@@ -42,7 +43,7 @@ _Requires Nancy Web Framework located at: http://nancyfx.org/. You can also do t
 
 ## Known Bugs
 
-_unknown._
+_None._
 
 ## Support and contact details
 
