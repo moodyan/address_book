@@ -5,7 +5,7 @@ using Nancy.Owin;
 using Nancy;
 using Nancy.ViewEngines.Razor;
 
-namespace CD_organizer
+namespace AddressBook
 {
   public class Startup
   {
