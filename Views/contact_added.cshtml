@@ -14,3 +14,7 @@
 
 <p><a href="/contact/new">Add another Contact</a></p>
 <p><a href="/">View All Contacts</a></p>
+
+<form action="/contact/@Model.GetId()" method="post">
+  <button type="submit" name="button">Delete This Contact</button>
+</form>

@@ -58,14 +58,15 @@ namespace AddressBook.Objects
       return _contacts;
     }
 
-    // public static void Clear()
-    // {
-    //   _contacts.Clear();
-    // }
-    // public void Remove()
-    // {
-    //   _contacts.Remove(this);
-    // }
+    public static void Clear()
+    {
+      _contacts.Clear();
+    }
+    public void Remove()
+    {
+      _contacts.Remove(this);
+    }
+    
     public static Contact Find(int searchID)
     {
       return _contacts[searchID - 1];
